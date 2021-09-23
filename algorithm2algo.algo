@@ -1,0 +1,29 @@
+ALGORITHM algorithm2
+VAR
+    j,k : INTEGER;
+    e1, e2 : ARRAY_OF INTEGER[10];
+    s: INTEGER;
+BEGIN
+s :=0;
+e1 := {4,5,6,8,2}
+e2 := {4,6,1,2}
+FOR j FROM 0 TO e1.length - 1 STEP 1  DO
+    FOR k FROM 0 TO e2.length - 1 STEP 1  DO
+    IF (e1[j] = e2[k]) THEN
+        BREAK;
+    END_IF
+    IF (k= e2.length - 1) THEN
+        s:= s+e1[j];
+    END_IF
+END_FOR
+FOR k FROM 0 TO e2.length - 1 STEP 1  DO
+    FOR j FROM 0 TO e1.length - 1 STEP 1  DO
+    IF (e2[j] = e1[k]) THEN
+        BREAK;
+    END_IF
+    IF (k = e1.length - 1) THEN
+        s:= s + e2[j];
+    END_IF
+END_FOR
+Write("somme des elements distincts est ", s);
+END
